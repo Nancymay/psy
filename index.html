@@ -145,6 +145,10 @@ section{position:relative}
 .page{position:relative;z-index:1;width:40%;aspect-ratio:3/4.1;background:#F7F0E7;border-radius:2px 6px 6px 2px;margin-left:-6%;transform:rotate(3deg) translateY(10px);box-shadow:0 40px 60px -30px rgba(0,0,0,.6);padding:9% 8%;transition:transform 1s var(--ease)}
 .band:hover .cover{transform:rotate(-2deg) translate(10px,-6px)}
 .band:hover .page{transform:rotate(4deg) translate(6px,6px)}
+.cover.cover-img{padding:0;aspect-ratio:auto;background:none;border-radius:3px 8px 8px 3px}
+.cover.cover-img::before,.cover.cover-img::after{display:none}
+.cover.cover-img img{width:100%;height:auto;display:block}
+.cover.cover-img::after{content:none}
 .page b{display:block;font:500 clamp(17px,1.5vw,22px)/1.15 var(--serif);color:var(--ink);margin-bottom:14%}
 .page span{display:block;height:1px;background:rgba(58,42,34,.2);margin-bottom:11%}
 .page span.box{height:auto;aspect-ratio:5/1.1;background:rgba(91,108,124,.1);border:1px solid rgba(91,108,124,.25);border-radius:2px}
@@ -459,7 +463,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
       <div class="rv" style="--d:.34s"><a href="#contact" class="btn btn-primary" data-todo="Нужна ссылка на файл тетради">Скачать тетрадь бесплатно <svg><use href="#arrow"/></svg></a></div>
     </div>
     <div class="band-visual fade" style="--d:.2s">
-      <div class="cover"><small>Рабочая тетрадь</small><i>Зависть — это самое полезное чувство</i><em>Анастасия Задорина</em></div>
+      <div class="cover cover-img"><img src="img/workbook-cover.jpg" alt="Обложка рабочей тетради «Зависть без маски» — Анастасия Задорина"></div>
       <div class="page"><b>Что я действительно хочу?</b><span></span><span></span><span class="box"></span><span></span><span class="box"></span><span></span></div>
     </div>
   </div></div>
