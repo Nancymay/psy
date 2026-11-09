@@ -107,6 +107,9 @@ section{position:relative}
 .fmt .cap svg{width:16px;height:16px;flex:none;transition:transform .3s var(--ease)}
 .fmt:hover .cap svg{transform:translateX(4px)}
 .mini-book{width:100%;height:100%;display:grid;place-items:center;background:radial-gradient(90% 90% at 30% 30%,#7b5040,#4a2a1f)}
+.mini-book{position:relative}
+.proj .ph .mini-book img{position:absolute;left:50%;top:8%;height:84%;width:auto;object-fit:contain;border-radius:3px 6px 6px 3px;box-shadow:0 22px 34px -16px rgba(0,0,0,.7);transform:translateX(-50%) rotate(-4deg);transition:transform .8s var(--ease)}
+.proj:hover .ph .mini-book img{transform:translateX(-50%) rotate(-1deg) translateY(-4px)}
 .mini-book span{width:24%;aspect-ratio:3/4;border-radius:3px 7px 7px 3px;background:linear-gradient(160deg,#EFE4D8 0 55%,var(--slate) 55%);box-shadow:-5px 0 0 -2px #35190f inset,0 18px 28px -14px rgba(0,0,0,.6);transform:rotate(-6deg);display:block;padding:12% 10%;font:500 14px/1 var(--serif);color:var(--brown)}
 
 /* ===== Обо мне ===== */
@@ -458,7 +461,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
       </svg>
       <h2 class="rv" style="--d:.08s">Не просто читать о&nbsp;себе. Исследовать себя.</h2>
       <p class="rv" style="--d:.16s">Рабочие тетради, которые помогают остановиться, задать себе важные вопросы и&nbsp;посмотреть на&nbsp;привычные переживания с&nbsp;другой стороны.</p>
-      <p class="rv" style="--d:.22s" data-todo="Добавьте: для кого тетрадь, сколько упражнений, как с ней работать, короткий отзыв читательницы">Первая тетрадь — о&nbsp;зависти. Это чувство принято стыдиться, но&nbsp;оно часто честнее всего подсказывает, чего нам на&nbsp;самом деле хочется.</p>
+      <p class="rv" style="--d:.22s" data-todo="Добавьте: для кого тетрадь, сколько упражнений, как с ней работать, короткий отзыв читательницы">Первая тетрадь — «Зависть без маски»: от&nbsp;сравнения к&nbsp;пониманию себя. Зависть принято стыдиться, но&nbsp;оно часто честнее всего подсказывает, чего нам на&nbsp;самом деле хочется.</p>
       <div class="meta rv" style="--d:.28s"><span class="tag" data-todo="Число страниц">[N] страниц</span><span class="tag">PDF для печати</span><span class="tag">Бесплатно</span></div>
       <div class="rv" style="--d:.34s"><a href="#contact" class="btn btn-primary" data-todo="Нужна ссылка на файл тетради">Скачать тетрадь бесплатно <svg><use href="#arrow"/></svg></a></div>
     </div>
@@ -555,9 +558,9 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
         </div>
       </article>
       <article class="proj rv" style="--d:.08s">
-        <div class="ph"><div class="mini-book"><span>Зависть —</span></div></div>
+        <div class="ph"><div class="mini-book"><img src="img/workbook-cover.jpg" alt="Обложка рабочей тетради «Зависть без маски»"></div></div>
         <div class="proj-body">
-          <h3>Рабочая тетрадь «Зависть»</h3>
+          <h3>Рабочая тетрадь «Зависть без маски»</h3>
           <span class="sub">Авторские материалы</span>
           <p>Вопросы и&nbsp;упражнения, чтобы посмотреть на&nbsp;зависть по-новому и&nbsp;понять, чего вы на&nbsp;самом деле хотите.</p>
           <div class="meta"><span class="tag">PDF для печати</span></div>
