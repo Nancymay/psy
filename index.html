@@ -426,8 +426,8 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
       <h1 class="rv" style="--d:.15s">Пространство для встречи с&nbsp;собой.</h1>
       <p class="rv" style="--d:.3s">Психология, индивидуальные консультации, авторские рабочие тетради и&nbsp;сообщества для тех, кому интересно исследовать себя и&nbsp;окружающий мир.</p>
       <div class="actions rv" style="--d:.45s">
-        <a href="#consult" class="btn btn-primary">Выбрать консультацию</a>
-        <a href="#workbook" class="btn btn-outline">Посмотреть тетради</a>
+        <a href="#consult" data-goal="hero_consult" class="btn btn-primary">Выбрать консультацию</a>
+        <a href="#workbook" data-goal="hero_workbook" class="btn btn-outline">Посмотреть тетради</a>
       </div>
     </div>
   </div>
@@ -477,7 +477,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
       <p class="rv" style="--d:.16s">Рабочие тетради, которые помогают остановиться, задать себе важные вопросы и&nbsp;посмотреть на&nbsp;привычные переживания с&nbsp;другой стороны.</p>
       <p class="rv" style="--d:.22s" data-todo="Добавьте: для кого тетрадь, сколько упражнений, как с ней работать, короткий отзыв читательницы">Первая тетрадь — «Зависть без маски»: от&nbsp;сравнения к&nbsp;пониманию себя. Зависть принято стыдиться, но&nbsp;оно часто честнее всего подсказывает, чего нам на&nbsp;самом деле хочется.</p>
       <div class="meta rv" style="--d:.28s"><span class="tag" data-todo="Число страниц">[N] страниц</span><span class="tag">PDF для печати</span><span class="tag">Бесплатно</span></div>
-      <div class="rv" style="--d:.34s"><a href="#contact" class="btn btn-primary" data-todo="Нужна ссылка на файл тетради">Скачать тетрадь бесплатно <svg><use href="#arrow"/></svg></a></div>
+      <div class="rv" style="--d:.34s"><a href="#contact" data-goal="workbook_download" class="btn btn-primary" data-todo="Нужна ссылка на файл тетради">Скачать тетрадь бесплатно <svg><use href="#arrow"/></svg></a></div>
     </div>
     <div class="band-visual fade" style="--d:.2s">
       <div class="cover cover-img"><img src="img/workbook-cover.jpg" alt="Обложка рабочей тетради «Зависть без маски» — Анастасия Задорина"></div>
@@ -516,7 +516,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
       <div class="meta rv" style="--d:.24s"><span class="tag" data-todo="Длительность сессии">50 минут</span><span class="tag">Очно / онлайн</span></div>
       <div class="price rv" style="--d:.28s" data-todo="Укажите стоимость сессии (и первой встречи, если отличается)"><b>[0 000] ₽</b><span>за встречу</span></div>
       <div class="row rv" style="--d:.32s">
-        <a href="#contact" class="btn btn-primary">Записаться на консультацию <svg><use href="#arrow"/></svg></a>
+        <a href="#contact" data-goal="consult_signup" class="btn btn-primary">Записаться на консультацию <svg><use href="#arrow"/></svg></a>
       </div>
     </div>
   </div></div>
@@ -568,7 +568,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
           <span class="sub">Очно в Костроме или онлайн</span>
           <p>Время, которое целиком принадлежит вам: разбираемся в&nbsp;переживаниях, отношениях и&nbsp;выборе.</p>
           <div class="meta"><span class="tag">50 минут</span></div>
-          <div class="proj-foot"><b data-todo="Стоимость сессии">[0 000] ₽<small>за встречу</small></b><a href="#contact" class="btn btn-primary">Записаться <svg><use href="#arrow"/></svg></a></div>
+          <div class="proj-foot"><b data-todo="Стоимость сессии">[0 000] ₽<small>за встречу</small></b><a href="#contact" data-goal="proj_consult" class="btn btn-primary">Записаться <svg><use href="#arrow"/></svg></a></div>
         </div>
       </article>
       <article class="proj rv" style="--d:.08s">
@@ -578,7 +578,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
           <span class="sub">Авторские материалы</span>
           <p>Вопросы и&nbsp;упражнения, чтобы посмотреть на&nbsp;зависть по-новому и&nbsp;понять, чего вы на&nbsp;самом деле хотите.</p>
           <div class="meta"><span class="tag">PDF для печати</span></div>
-          <div class="proj-foot"><b>Бесплатно</b><a href="#workbook" class="btn btn-primary" data-todo="Ссылка на файл тетради">Скачать <svg><use href="#arrow"/></svg></a></div>
+          <div class="proj-foot"><b>Бесплатно</b><a href="#workbook" data-goal="proj_workbook" class="btn btn-primary" data-todo="Ссылка на файл тетради">Скачать <svg><use href="#arrow"/></svg></a></div>
         </div>
       </article>
       <article class="proj rv" style="--d:.16s">
@@ -588,7 +588,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
           <span class="sub">Чтение, обсуждение и встречи</span>
           <p>Читаем одну книгу и&nbsp;обсуждаем её через призму психологии — за&nbsp;чаем и&nbsp;тёплыми разговорами.</p>
           <div class="meta"><span class="tag" data-todo="Периодичность">[1 раз в месяц]</span></div>
-          <div class="proj-foot"><b>450 ₽<small>за встречу</small></b><a href="#contact" class="btn btn-primary">Вступить <svg><use href="#arrow"/></svg></a></div>
+          <div class="proj-foot"><b>450 ₽<small>за встречу</small></b><a href="#contact" data-goal="proj_bookclub" class="btn btn-primary">Вступить <svg><use href="#arrow"/></svg></a></div>
         </div>
       </article>
       <article class="proj rv" id="writing" style="--d:.24s">
@@ -598,7 +598,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
           <span class="sub">Для тех, кто хочет писать</span>
           <p>Пишем по&nbsp;заданиям, читаем вслух и&nbsp;поддерживаем друг друга без критики. Опыт не&nbsp;нужен.</p>
           <div class="meta"><span class="tag" data-todo="Периодичность">[1 раз в 2 недели]</span></div>
-          <div class="proj-foot"><b>450 ₽<small>за встречу</small></b><a href="#contact" class="btn btn-primary">Вступить <svg><use href="#arrow"/></svg></a></div>
+          <div class="proj-foot"><b>450 ₽<small>за встречу</small></b><a href="#contact" data-goal="proj_writingclub" class="btn btn-primary">Вступить <svg><use href="#arrow"/></svg></a></div>
         </div>
       </article>
     </div>
@@ -745,6 +745,8 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
     if(was==='accepted'&&window.ym)location.reload();
   });
   document.getElementById('cookieSettings').addEventListener('click',show);
+  // цели Метрики: клики по кнопкам с data-goal (считаются только после согласия)
+  document.addEventListener('click',e=>{const el=e.target.closest('[data-goal]');if(el&&window.ym&&YM_ID){try{ym(YM_ID,'reachGoal',el.dataset.goal)}catch(_){}}});
 
   const todoBtn=document.getElementById('todoBtn');
   document.getElementById('todoCount').textContent='· '+document.querySelectorAll('[data-todo]').length;
