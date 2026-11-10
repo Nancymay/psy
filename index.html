@@ -288,6 +288,18 @@ footer{background:var(--brown);color:#EBDACB;margin-top:110px;padding:50px 0 36p
 .fade{opacity:0;transition:opacity 1.6s var(--ease);transition-delay:var(--d,0s)}
 .fade.in{opacity:1}
 
+
+/* ===== Баннер cookie ===== */
+.cookie{position:fixed;right:20px;bottom:20px;z-index:70;max-width:420px;background:var(--cream);color:var(--ink);border-radius:var(--r);padding:22px 24px 20px;box-shadow:0 24px 60px -24px rgba(58,42,34,.55),0 0 0 1px var(--line);transform:translateY(24px);opacity:0;visibility:hidden;transition:transform .6s var(--ease),opacity .6s var(--ease),visibility 0s .6s}
+.cookie.show{transform:none;opacity:1;visibility:visible;transition:transform .6s var(--ease),opacity .6s var(--ease)}
+.cookie h4{font:500 22px/1.2 var(--serif)}
+.cookie p{font-size:14px;line-height:1.55;color:#4A3A31;margin-top:8px}
+.cookie p a{color:var(--slate)}
+.cookie .row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.cookie .btn{padding:11px 20px;font-size:14px}
+.legal button.link-btn{background:none;border:0;color:inherit;font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(235,218,203,.4);padding:0}
+@media (max-width:560px){.cookie{left:12px;right:12px;bottom:12px;max-width:none;padding:20px}body.cookie-open .todo-toggle{display:none}}
+@media (prefers-reduced-motion:reduce){.cookie{transform:none}}
 /* ===== Режим «что заполнить» ===== */
 .todo-toggle{position:fixed;left:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border:0;border-radius:var(--pill);padding:12px 18px;font:500 14px var(--sans);cursor:pointer;box-shadow:0 14px 30px -14px rgba(0,0,0,.5);transition:transform .2s var(--ease)}
 .todo-toggle:hover{transform:translateY(-2px)}
@@ -659,11 +671,20 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
     </div>
     <div class="legal">
       <span>© 2026 Анастасия Задорина. Все права защищены</span>
-      <span><span data-todo="Ваш ИНН">Самозанятая, ИНН [__________]</span> · <a href="privacy.html">Политика обработки персональных данных</a> · <a href="consent.html">Согласие на обработку</a></span>
+      <span><span data-todo="Ваш ИНН">Самозанятая, ИНН [__________]</span> · <a href="privacy.html">Политика обработки персональных данных</a> · <a href="consent.html">Согласие на обработку</a> · <button class="link-btn" id="cookieSettings">Настройки cookie</button></span>
     </div>
   </div>
 </footer>
 
+
+<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Файлы cookie">
+  <h4>Файлы cookie</h4>
+  <p>Я использую Яндекс Метрику, чтобы понимать, как посетители пользуются сайтом. Она включится, только если вы согласитесь. Подробнее — в&nbsp;<a href="privacy.html">политике</a> и&nbsp;<a href="consent.html">согласии на&nbsp;обработку данных</a>.</p>
+  <div class="row">
+    <button class="btn btn-primary" id="cookieYes">Принять</button>
+    <button class="btn btn-outline" id="cookieNo">Отказаться</button>
+  </div>
+</div>
 <button class="todo-toggle" id="todoBtn" aria-pressed="false"><i></i><span>Что заполнить</span><span class="count" id="todoCount"></span></button>
 
 <script>
@@ -699,6 +720,31 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
       else{d.open=true;const h=a.scrollHeight;a.style.height='0px';requestAnimationFrame(()=>{a.style.height=h+'px'});a.addEventListener('transitionend',()=>{a.style.height=''},{once:true})}
     });
   });
+
+
+  // ===== cookie и Яндекс Метрика =====
+  // Номер счётчика Метрики: впишите цифры вместо null, например 12345678
+  const YM_ID = null;
+  const KEY='cookie-consent', YEAR=365*24*3600*1000;
+  const banner=document.getElementById('cookie');
+  const read=()=>{try{const v=JSON.parse(localStorage.getItem(KEY));return v&&Date.now()-v.t<YEAR?v.v:null}catch(e){return null}};
+  const save=v=>{try{localStorage.setItem(KEY,JSON.stringify({v,t:Date.now()}))}catch(e){}};
+  function loadMetrika(){
+    if(!YM_ID||window.ym)return;
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+    ym(YM_ID,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:false});
+  }
+  const show=()=>{banner.classList.add('show');document.body.classList.add('cookie-open')};
+  const hide=()=>{banner.classList.remove('show');document.body.classList.remove('cookie-open')};
+  const choice=read();
+  if(choice==='accepted')loadMetrika();
+  else if(choice!=='declined')setTimeout(show,1200);
+  document.getElementById('cookieYes').addEventListener('click',()=>{save('accepted');hide();loadMetrika()});
+  document.getElementById('cookieNo').addEventListener('click',()=>{
+    const was=read();save('declined');hide();
+    if(was==='accepted'&&window.ym)location.reload();
+  });
+  document.getElementById('cookieSettings').addEventListener('click',show);
 
   const todoBtn=document.getElementById('todoBtn');
   document.getElementById('todoCount').textContent='· '+document.querySelectorAll('[data-todo]').length;
