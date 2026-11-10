@@ -276,6 +276,8 @@ footer{background:var(--brown);color:#EBDACB;margin-top:110px;padding:50px 0 36p
 .social a{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;transition:background .25s}
 .social a:hover{background:rgba(235,218,203,.12)}
 .social svg{width:22px;height:22px;fill:#EBDACB}
+.legal a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(235,218,203,.4)}
+.legal a:hover{text-decoration-color:currentColor}
 .legal{border-top:1px solid rgba(235,218,203,.18);margin-top:34px;padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;opacity:.7}
 
 /* ===== Появление ===== */
@@ -657,7 +659,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
     </div>
     <div class="legal">
       <span>© 2026 Анастасия Задорина. Все права защищены</span>
-      <span data-todo="Если принимаете оплату: ИНН / статус самозанятой и политика конфиденциальности">Самозанятая, ИНН [__________] · Политика конфиденциальности</span>
+      <span><span data-todo="Ваш ИНН">Самозанятая, ИНН [__________]</span> · <a href="privacy.html">Политика обработки персональных данных</a> · <a href="consent.html">Согласие на обработку</a></span>
     </div>
   </div>
 </footer>
