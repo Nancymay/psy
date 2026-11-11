@@ -200,15 +200,27 @@ section{position:relative}
 .step p{font-size:15px;color:rgba(255,255,255,.82)}
 
 /* ===== Образование ===== */
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
-.edu-list{list-style:none;margin-top:34px}
-.edu-list li{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.edu-sub{font-size:clamp(24px,2.2vw,30px);margin-top:14px}
+.edu-list{list-style:none;margin-top:30px}
+.edu-list li{display:grid;grid-template-columns:76px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line)}
 .edu-list li:last-child{border-bottom:1px solid var(--line)}
-.edu-list .yr{font:500 22px/1.2 var(--serif);color:var(--slate)}
-.edu-list b{font-weight:600;display:block}
-.edu-list span{font-size:15px;color:var(--muted)}
-.diploma{border-radius:var(--r);overflow:hidden;transform:rotate(-1.5deg);box-shadow:0 30px 60px -32px rgba(58,42,34,.55);transition:transform .7s var(--ease)}
-.diploma:hover{transform:rotate(0)}
+.edu-list .yr{font:500 22px/1.25 var(--serif);color:var(--slate)}
+.edu-list b{font-weight:600;display:block;line-height:1.4}
+.edu-list span{font-size:15px;color:var(--muted);display:block;margin-top:4px}
+.courses b{font-weight:500;font-size:16px}
+.docs{display:flex;gap:16px;margin-top:50px;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x mandatory}
+.doc{flex:none;height:220px;border:0;padding:0;background:#fff;border-radius:6px;overflow:hidden;cursor:zoom-in;box-shadow:0 18px 34px -22px rgba(58,42,34,.55);scroll-snap-align:start;transition:transform .4s var(--ease),box-shadow .4s}
+.doc:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 26px 40px -22px rgba(58,42,34,.6)}
+.doc img{height:100%;width:auto}
+.lightbox{position:fixed;inset:0;z-index:90;background:rgba(30,20,15,.82);display:grid;place-items:center;padding:30px;opacity:0;transition:opacity .35s var(--ease)}
+.lightbox.show{opacity:1}
+.lightbox[hidden]{display:none}
+.lightbox figure{max-width:min(1000px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:14px}
+.lightbox img{max-width:100%;max-height:calc(100vh - 110px);border-radius:6px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+.lightbox figcaption{color:#F2E6DA;font-size:14px;text-align:center}
+.lb-close{position:absolute;top:16px;right:20px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(246,238,229,.15);color:#fff;font-size:28px;line-height:1;cursor:pointer}
+.lb-close:hover{background:rgba(246,238,229,.28)}
 
 /* ===== Проекты и сообщества ===== */
 .projects-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:44px}
@@ -364,6 +376,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
   .steps-row{grid-template-columns:1fr}
   .facts b{font-size:32px}
   .edu-list li{grid-template-columns:1fr;gap:4px}
+  .doc{height:170px}
   .todo-toggle .count{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -534,22 +547,40 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
 
 <!-- ============ ОБРАЗОВАНИЕ ============ -->
 <section class="sec" id="education" style="padding-top:20px">
-  <div class="wrap edu-grid">
-    <div>
-      <span class="eyebrow rv">Образование</span>
-      <h2 class="rv" style="--d:.08s">Учусь постоянно — и&nbsp;это видно в&nbsp;работе</h2>
-      <ul class="edu-list" data-todo="Нужно: годы, названия вузов и курсов, специальность, число часов">
-        <li class="rv"><span class="yr">[год]</span><div><b>Высшее психологическое образование</b><span>[Название вуза], специальность «[…]»</span></div></li>
-        <li class="rv" style="--d:.06s"><span class="yr">[год]</span><div><b>Профессиональная переподготовка</b><span>[Институт], программа «[…]», [N] часов</span></div></li>
-        <li class="rv" style="--d:.12s"><span class="yr">[год]</span><div><b>Повышение квалификации</b><span>[Курс по работе с тревогой / травмой / …]</span></div></li>
-        <li class="rv" style="--d:.18s"><span class="yr">сейчас</span><div><b>Супервизия и личная терапия</b><span>Регулярно, чтобы работать качественно и бережно</span></div></li>
-      </ul>
+  <div class="wrap">
+    <div class="edu-grid">
+      <div>
+        <h2 class="rv">Учусь постоянно</h2>
+        <ul class="edu-list">
+          <li class="rv"><span class="yr">2017</span><div><b>Костромской государственный университет</b><span>Педагогическое образование, бакалавр</span></div></li>
+          <li class="rv" style="--d:.06s"><span class="yr">2020</span><div><b>Северный (Арктический) федеральный университет им.&nbsp;М.&nbsp;В.&nbsp;Ломоносова</b><span>Архангельск, магистр</span></div></li>
+          <li class="rv" style="--d:.12s"><span class="yr">2027</span><div><b>Санкт-Петербургский государственный институт психологии и&nbsp;социальной работы</b><span>Общая и&nbsp;консультативная психология, психолог общей практики. Бакалавриат, сейчас 4&nbsp;курс</span></div></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="rv edu-sub">Дополнительное обучение</h3>
+        <ul class="edu-list courses">
+          <li class="rv"><span class="yr">2025</span><div><b>Эмоциональное выгорание: арт-терапевтические техники диагностики, стратегии работы</b><span>Международная школа арт-терапии, 4&nbsp;ак.&nbsp;ч.</span></div></li>
+          <li class="rv" style="--d:.06s"><span class="yr">2024</span><div><b>Когнитивно-поведенческая терапия. Теория и&nbsp;методы работы с&nbsp;тревожным клиентом</b><span>Центр психологического образования «Метафора», 3&nbsp;ак.&nbsp;ч.</span></div></li>
+          <li class="rv" style="--d:.12s"><span class="yr">2024</span><div><b>Психологическая помощь в&nbsp;ситуации развода</b><span>Центр психологического образования «Метафора», 3&nbsp;ак.&nbsp;ч.</span></div></li>
+          <li class="rv" style="--d:.18s"><span class="yr">2024</span><div><b>Action to End Child Sexual Exploitation and Abuse</b><span>UNICEF и&nbsp;End Violence Partnership</span></div></li>
+        </ul>
+      </div>
     </div>
-    <figure class="diploma rv" style="--d:.15s" data-todo="Замените на скан вашего диплома (сейчас картинка из наброска, намеренно размыта)">
-      <img src="img/diploma.jpg" alt="Диплом о профессиональной переподготовке">
-    </figure>
+    <div class="docs">
+        <button class="doc rv" style="--d:0.00s" data-full="img/diploma-bachelor.jpg" data-cap="Диплом бакалавра · КГУ · 2017"><img src="img/diploma-bachelor-sm.jpg" alt="Диплом бакалавра, КГУ, 2017" loading="lazy"></button>
+        <button class="doc rv" style="--d:0.05s" data-full="img/cert-cbt.jpg" data-cap="КПТ: работа с тревожным клиентом · 2024"><img src="img/cert-cbt-sm.jpg" alt="Сертификат «Когнитивно-поведенческая терапия. Работа с тревожным клиентом»" loading="lazy"></button>
+        <button class="doc rv" style="--d:0.10s" data-full="img/cert-divorce.jpg" data-cap="Помощь в ситуации развода · 2024"><img src="img/cert-divorce-sm.jpg" alt="Сертификат «Психологическая помощь в ситуации развода»" loading="lazy"></button>
+        <button class="doc rv" style="--d:0.15s" data-full="img/cert-unicef.jpg" data-cap="UNICEF: защита детей от насилия · 2024"><img src="img/cert-unicef-sm.jpg" alt="Сертификат UNICEF «Action to End Child Sexual Exploitation and Abuse»" loading="lazy"></button>
+        <button class="doc rv" style="--d:0.20s" data-full="img/cert-burnout.jpg" data-cap="Эмоциональное выгорание · 2025"><img src="img/cert-burnout-sm.jpg" alt="Сертификат «Эмоциональное выгорание: арт-терапевтические техники»" loading="lazy"></button>
+    </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Документ" hidden>
+  <button class="lb-close" aria-label="Закрыть">×</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</div>
 
 <!-- ============ ПРОЕКТЫ И СООБЩЕСТВА ============ -->
 <section class="sec" id="projects" style="padding-top:20px">
@@ -744,6 +775,12 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
   // цели Метрики: клики по кнопкам с data-goal (считаются только после согласия)
   document.addEventListener('click',e=>{const el=e.target.closest('[data-goal]');if(el&&window.ym&&YM_ID){try{ym(YM_ID,'reachGoal',el.dataset.goal)}catch(_){}}});
 
+  // просмотр документов
+  const lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('figcaption');
+  const closeLb=()=>{lb.classList.remove('show');setTimeout(()=>{lb.hidden=true},300);document.body.style.overflow=''};
+  document.querySelectorAll('.doc').forEach(d=>d.addEventListener('click',()=>{lbImg.src=d.dataset.full;lbImg.alt=d.querySelector('img').alt;lbCap.textContent=d.dataset.cap;lb.hidden=false;document.body.style.overflow='hidden';requestAnimationFrame(()=>lb.classList.add('show'));lb.querySelector('.lb-close').focus()}));
+  lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-close'))closeLb()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)closeLb()});
   const todoBtn=document.getElementById('todoBtn');
   document.getElementById('todoCount').textContent='· '+document.querySelectorAll('[data-todo]').length;
   todoBtn.addEventListener('click',()=>{const on=document.body.classList.toggle('todo');todoBtn.setAttribute('aria-pressed',on);todoBtn.querySelector('span').textContent=on?'Скрыть подсказки':'Что заполнить'});
