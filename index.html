@@ -268,13 +268,16 @@ details[open] summary .pm::after{transform:translate(-50%,-50%) rotate(0)}
 
 /* ===== Запись ===== */
 .cta{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r);overflow:hidden;background:var(--slate);color:#fff;position:relative}
-.cta-text{padding:70px 64px;position:relative}
+.cta-text{padding:70px 64px;position:relative;display:flex;flex-direction:column;justify-content:center}
 .cta h2{color:#fff}
 .cta p{color:rgba(255,255,255,.84);margin:20px 0 34px;max-width:42ch}
 .cta .eyebrow{color:rgba(255,255,255,.65)}
 .cta .botanic{position:absolute;right:20px;top:24px;width:120px;color:#fff;opacity:.4}
 .cta .ph{overflow:hidden;min-height:420px}
 .cta .ph img{width:100%;height:100%;object-fit:cover}
+.cta .ph.duo{min-height:560px;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--slate)}
+.cta .ph.duo img{min-height:0;transition:transform 1.2s var(--ease)}
+.cta:hover .ph.duo img{transform:scale(1.03)}
 .channels{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
 .channels .btn-ghost-light{color:#fff;border-color:rgba(255,255,255,.5)}
 
@@ -365,6 +368,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
   .gallery figure:first-child{grid-row:auto;grid-column:1/-1;aspect-ratio:16/11}
   .cta-text{padding:52px 24px}
   .cta .ph{min-height:0;aspect-ratio:16/10}
+  .cta .ph.duo{aspect-ratio:4/3;min-height:0}
   .social{padding-left:0;border-left:0}
   .btn{white-space:normal}
 }
@@ -679,7 +683,7 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
           <a class="btn btn-cream" data-goal="contact_vk" href="https://vk.ru/zadorina_psychology" target="_blank" rel="noopener">Написать ВКонтакте <svg><use href="#arrow"/></svg></a>
         </div>
       </div>
-      <div class="ph"><img src="img/room-chair.jpg" alt="Кресло в кабинете" style="object-position:center 70%"></div>
+      <div class="ph duo"><img src="img/contact-mirror.jpg" alt="Лампы и книжная полка в кабинете, отражённые в круглом зеркале"><img src="img/contact-notebook.jpg" alt="Блокнот и ручка на столе в кабинете" style="object-position:center 75%"></div>
     </div>
   </div>
 </section>
