@@ -172,6 +172,11 @@ section{position:relative}
 .consult:hover .consult-ph img{transform:scale(1.03)}
 .consult-body{padding:72px 72px;display:flex;flex-direction:column;justify-content:center}
 .consult-body p{margin-top:20px;color:#4A3A31;max-width:52ch}
+.prices{list-style:none;margin:28px 0 30px;border-top:1px solid var(--line);max-width:520px}
+.prices li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.prices span{font-weight:500;font-size:16px;line-height:1.35}
+.prices small{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+.prices b{font:500 30px/1 var(--serif);white-space:nowrap}
 .price{display:flex;align-items:baseline;gap:10px;margin:30px 0 28px}
 .price b{font:500 44px/1 var(--serif)}
 .price span{color:var(--muted);font-size:15px}
@@ -501,8 +506,12 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
       <h2 class="rv" style="--d:.08s">Иногда, чтобы разобраться в&nbsp;происходящем, нужен другой взгляд.</h2>
       <p class="rv" style="--d:.14s">Индивидуальная консультация — это возможность уделить внимание себе, своим переживаниям и&nbsp;отношениям. Время, которое целиком принадлежит вам.</p>
       <p class="rv" style="--d:.2s" data-todo="Опишите, чем отличаются очный и онлайн-форматы, правила переноса и отмены">Встречи проходят очно в&nbsp;кабинете в&nbsp;центре Костромы или онлайн.</p>
-      <div class="meta rv" style="--d:.24s"><span class="tag" data-todo="Длительность сессии">50 минут</span><span class="tag">Очно / онлайн</span></div>
-      <div class="price rv" style="--d:.28s" data-todo="Укажите стоимость сессии (и первой встречи, если отличается)"><b>[0 000] ₽</b><span>за встречу</span></div>
+      <div class="meta rv" style="--d:.24s"><span class="tag">Очно / онлайн</span></div>
+      <ul class="prices rv" style="--d:.28s">
+        <li><span>Индивидуальная консультация <small>60 минут</small></span><b>2&nbsp;500&nbsp;₽</b></li>
+        <li><span>Индивидуальная консультация <small>90 минут</small></span><b>3&nbsp;500&nbsp;₽</b></li>
+        <li><span>Семейная (парная) консультация <small>60 минут</small></span><b>3&nbsp;000&nbsp;₽</b></li>
+      </ul>
       <div class="row rv" style="--d:.32s">
         <a href="#contact" data-goal="consult_signup" class="btn btn-primary">Записаться на консультацию <svg><use href="#arrow"/></svg></a>
       </div>
@@ -555,8 +564,8 @@ body.todo [data-todo]::after{content:attr(data-todo);position:absolute;z-index:5
           <h3>Индивидуальная консультация</h3>
           <span class="sub">Очно в Костроме или онлайн</span>
           <p>Время, которое целиком принадлежит вам: разбираемся в&nbsp;переживаниях, отношениях и&nbsp;выборе.</p>
-          <div class="meta"><span class="tag">50 минут</span></div>
-          <div class="proj-foot"><b data-todo="Стоимость сессии">[0 000] ₽<small>за встречу</small></b><a href="#contact" data-goal="proj_consult" class="btn btn-primary">Записаться <svg><use href="#arrow"/></svg></a></div>
+          <div class="meta"><span class="tag">60 / 90 минут</span><span class="tag">Есть парные</span></div>
+          <div class="proj-foot"><b><small style="margin:0 6px 0 0">от</small>2&nbsp;500&nbsp;₽</b><a href="#contact" data-goal="proj_consult" class="btn btn-primary">Записаться <svg><use href="#arrow"/></svg></a></div>
         </div>
       </article>
       <article class="proj rv" style="--d:.08s">
